@@ -3,7 +3,7 @@
 This gem contains the OpenGuilds strategy for OmniAuth.
 
 OpenGuilds offers a few different methods of
-(integration)['https://docs.openguilds.com/#authentication'].
+[integration]('https://docs.openguilds.com/#authentication').
 This strategy implements the browser variant of the "Sign in
 with OpenGuilds" flow.
 
