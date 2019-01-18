@@ -3,12 +3,12 @@
 This gem contains the OpenGuilds strategy for OmniAuth.
 
 OpenGuilds offers a few different methods of
-[integration]('https://docs.openguilds.com/#authentication').
+[integration](https://docs.openguilds.com/#authentication).
 This strategy implements the browser variant of the "Sign in
 with OpenGuilds" flow.
 
 OpenGuilds uses OAuth 2.0. OpenGuilds's
-[documentation]('https://docs.openguilds.com/#authentication') has sections
+[documentation](https://docs.openguilds.com/#authentication) has sections
 on how it implements this, so check that out if you are really interested
 in the details.
 
@@ -16,9 +16,9 @@ in the details.
 
 
 You should have already installed OmniAuth into your app; 
-if not, read the [OmniAuth README]('https://github.com/omniauth/omniauth') to get started.
+if not, read the [OmniAuth README](https://github.com/omniauth/omniauth) to get started.
 
-Now sign in into your [OpenGuilds account area]('https://dashboard.openguilds.com/account')
+Now sign in into your [OpenGuilds account area](https://dashboard.openguilds.com/account)
  and create an application. Take note of your Application Key and Application Secret 
 (not the Access Token and Access Token Secret) because that is what your 
 web application will use to authenticate against the OpenGuilds API. 
