@@ -26,6 +26,17 @@ RSpec.describe OmniAuth::Strategies::OpenGuilds do
     end
   end
 
+  describe 'custom client options' do
+    before do
+      @options = { client_options: { site: 'https://testing.openguilds.com' } }
+    end
+
+    it 'should have correct site' do
+      expect(subject.options.client_options.site).to eq('https://testing.openguilds.com')
+    end
+  end
+
+
   describe 'info' do
     before do
       allow(subject).to receive(:raw_info).and_return(raw_info_hash)
