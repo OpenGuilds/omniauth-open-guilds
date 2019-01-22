@@ -49,9 +49,24 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
-## Usage
+## Authentication Hash
 
-TODO: Write usage instructions here
+It should look something like:
+
+```ruby
+{
+  :provider => "open_guilds",
+  :uid => "123456",
+  :info => {
+    :name => "John D Smith",
+    :email => "john-smith@gmail.com",
+  },
+  :credentials => {
+    :token => "a1b2c3d4...", # The OAuth 2.0 access token
+    :expires_at => 1496120719
+  },
+}
+```
 
 ## Development
 
