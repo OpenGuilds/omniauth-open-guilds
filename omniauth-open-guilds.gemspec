@@ -5,7 +5,7 @@ require "omniauth/open_guilds/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-open-guilds"
-  spec.version       = Omniauth::OpenGuilds::VERSION
+  spec.version       = OmniAuth::OpenGuilds::VERSION
   spec.authors       = ["Nolan Tait"]
   spec.email         = ["nolanjtait@gmail.com"]
 

@@ -1,4 +1,4 @@
-# Omniauth::OpenGuilds
+# OmniAuth::OpenGuilds
 
 This gem contains the OpenGuilds strategy for
 [OmniAuth](https://github.com/omniauth/omniauth).
