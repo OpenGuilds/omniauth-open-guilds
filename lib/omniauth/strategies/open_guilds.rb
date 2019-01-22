@@ -1,9 +1,10 @@
-require 'omniauth-oauth2'
+require 'omniauth'
 require 'json'
 
 module OmniAuth
   module Strategies
-    class OpenGuilds < OmniAuth::Strategies::OAuth2
+    class OpenGuilds
+      include OmniAuth::Strategy
       option :name, :open_guilds
 
       option :client_options, {

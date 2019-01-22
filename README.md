@@ -1,6 +1,7 @@
-# Omniauth::Open::Guilds
+# Omniauth::OpenGuilds
 
-This gem contains the OpenGuilds strategy for OmniAuth.
+This gem contains the OpenGuilds strategy for
+[OmniAuth](https://github.com/omniauth/omniauth).
 
 OpenGuilds offers a few different methods of
 [integration](https://docs.openguilds.com/#authentication).
@@ -45,9 +46,18 @@ Next, tell OmniAuth about this provider. For a Rails app, your
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, "API_KEY", "API_SECRET"
+  provider :open_guilds, "API_KEY", "API_SECRET"
 end
 ```
+
+Or if you are using Devise:
+
+```ruby
+Devise.setup do |config|
+  config.omniauth :open_guilds, ENV['OPEN_GUILDS_APP_ID'], ENV['OPEN_GUILDS_APP_SECRET']
+end
+```
+
 
 ## Authentication Hash
 

@@ -2,52 +2,55 @@ require 'spec_helper'
 
 RSpec.describe OmniAuth::Strategies::OpenGuilds do
   let(:request) { double('Request', :params => {}, :cookies => {}, :env => {}) }
+  let(:options){ {} }
+  let(:app) { lambda{|env| [200, {}, ["Hello World."]]} }
 
-  subject do
-    args = ['appid', 'secret', @options || {}].compact
-    OmniAuth::Strategies::OpenGuilds.new(*args).tap do |strategy|
+  let(:result) {
+    OmniAuth::Strategies::OpenGuilds.new(app, options).tap do |strategy|
       allow(strategy).to receive(:request) {
         request
       }
     end
-  end
+  }
 
   describe 'client options' do
     it 'should have correct name' do
-      expect(subject.options.name).to eq(:open_guilds)
+      expect(result.options.name).to eq(:open_guilds)
     end
 
     it 'should have correct site' do
-      expect(subject.options.client_options.site).to eq('https://dashboard.openguilds.com')
+      expect(result.options.client_options.site).to eq('https://dashboard.openguilds.com')
     end
 
     it 'should have correct authorize url' do
-      expect(subject.options.client_options.authorize_path).to eq('/oauth/authenticate')
+      expect(result.options.client_options.authorize_path).to eq('/oauth/authenticate')
     end
   end
 
   describe 'custom client options' do
-    before do
-      @options = { client_options: { site: 'https://testing.openguilds.com' } }
-    end
+    let(:options) { 
+      { 
+        client_options: { site: 'https://testing.openguilds.com' }
+      } 
+    }
 
     it 'should have correct site' do
-      expect(subject.options.client_options.site).to eq('https://testing.openguilds.com')
+      expect(result.options.client_options.site).to eq('https://testing.openguilds.com')
     end
   end
 
 
   describe 'info' do
     before do
-      allow(subject).to receive(:raw_info).and_return(raw_info_hash)
+      allow(result).to receive(:raw_info).and_return(raw_info_hash)
     end
 
     it 'should returns the name' do
-      expect(subject.info[:name]).to eq(raw_info_hash['name'])
+      expect(result.info[:name]).to eq(raw_info_hash['name'])
     end
 
     it 'should returns the email' do
-      expect(subject.info[:email]).to eq(raw_info_hash['email'])
+      expect(result.info[:email]).to eq(raw_info_hash['email'])
     end
   end
 end
