@@ -4,7 +4,7 @@ require 'json'
 module OmniAuth
   module Strategies
     class OpenGuilds < OmniAuth::Strategies::OAuth2
-      option :name, :open_guilds
+      option :name, 'open_guilds'
 
       option :client_options, {
         :authorize_path => '/oauth/authenticate',

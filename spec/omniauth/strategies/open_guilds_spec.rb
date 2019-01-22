@@ -15,7 +15,7 @@ RSpec.describe OmniAuth::Strategies::OpenGuilds do
 
   describe 'client options' do
     it 'should have correct name' do
-      expect(result.options.name).to eq(:open_guilds)
+      expect(result.options.name).to eq('open_guilds')
     end
 
     it 'should have correct site' do
