@@ -1,0 +1,51 @@
+require 'spec_helper'
+
+RSpec.describe OmniAuth::Strategies::OpenGuilds do
+  let(:request) { double('Request', :params => {}, :cookies => {}, :env => {}) }
+
+  subject do
+    args = ['appid', 'secret', @options || {}].compact
+    OmniAuth::Strategies::OpenGuilds.new(*args).tap do |strategy|
+      allow(strategy).to receive(:request) {
+        request
+      }
+    end
+  end
+
+  describe 'client options' do
+    it 'should have correct name' do
+      expect(subject.options.name).to eq(:open_guilds)
+    end
+
+    it 'should have correct site' do
+      expect(subject.options.client_options.site).to eq('https://dashboard.openguilds.com')
+    end
+
+    it 'should have correct authorize url' do
+      expect(subject.options.client_options.authorize_path).to eq('/oauth/authenticate')
+    end
+  end
+
+  describe 'info' do
+    before do
+      allow(subject).to receive(:raw_info).and_return(raw_info_hash)
+    end
+
+    it 'should returns the name' do
+      expect(subject.info[:name]).to eq(raw_info_hash['name'])
+    end
+
+    it 'should returns the email' do
+      expect(subject.info[:email]).to eq(raw_info_hash['email'])
+    end
+  end
+end
+
+private
+
+def raw_info_hash
+  {
+    'name' => 'Foo Bar',
+    'email' => 'foo@example.com',
+  }
+end
