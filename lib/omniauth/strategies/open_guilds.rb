@@ -35,5 +35,7 @@ module OmniAuth
         full_host + script_name + callback_path
       end
     end
+
+    autoload :OpenGuilds, "omniauth/strategies/open_guilds"
   end
 end

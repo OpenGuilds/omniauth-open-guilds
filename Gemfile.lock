@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    omniauth-open-guilds (0.2.0)
-      omniauth (>= 1.1.1)
+    omniauth-open-guilds (0.3.0)
+      omniauth
+      omniauth-oauth2
 
 GEM
   remote: https://rubygems.org/
