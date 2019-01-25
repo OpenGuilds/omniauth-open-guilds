@@ -11,7 +11,7 @@ module OmniAuth
         :site => 'https://dashboard.openguilds.com',
       }
 
-      uid { access_token.params[:resource_owner_id] }
+      uid { access_token.params['resource_owner_id'] }
 
 
       info do
