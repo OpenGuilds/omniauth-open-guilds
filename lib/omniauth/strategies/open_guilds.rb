@@ -11,13 +11,13 @@ module OmniAuth
         :site => 'https://dashboard.openguilds.com',
       }
 
-      uid { access_token.params[:user_id] }
+      uid { access_token.params[:id] }
 
 
       info do
         {
           :name => raw_info['name'],
-          :email => raw_info["email"],
+          :email => raw_info['email'],
         }
       end
 
