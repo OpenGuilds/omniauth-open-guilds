@@ -28,7 +28,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('api/v1/me').parsed
+        @raw_info ||= access_token.get('api/me').parsed
       end
 
       def callback_url
